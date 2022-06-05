@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import Menu from "../layout/Menu.vue";
+import TitlePage from '../components/TitlePage.vue'
 </script>
 
 <template>
   <div class="flex">
     <Menu />
-    <div>setting</div>
+      <div>
+      <TitlePage title="setting" subtitle="subsetting" />
+    </div>
   </div>
 </template>
