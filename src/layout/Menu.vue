@@ -1,4 +1,32 @@
 <script setup lang="ts">
+import { ref } from "vue";
+export interface IMeunu {
+  path: string;
+  name: string;
+}
+
+const routes = ref<IMeunu[]>([
+  {
+    path: "/",
+    name: "home",
+  },
+  {
+    path: "staff",
+    name: "Staff",
+  },
+  {
+    path: "records",
+    name: "Records",
+  },
+  {
+    path: "task",
+    name: "Task",
+  },
+  {
+    path: "settings",
+    name: "Settings",
+  }
+]);
 </script>
 
 <template>
@@ -6,26 +34,9 @@
     <div>
       <h1>Sparkle</h1>
     </div>
-    <div>
-      <router-link to="/">
-        <span>icon</span>
-        <p>Main</p>
-      </router-link>
-      <router-link to="/staff">
-        <span>icon</span>
-        <p>Staff</p>
-      </router-link>
-      <router-link to="/records">
-        <span>icon</span>
-        <p>Records</p>
-      </router-link>
-      <router-link to="/task">
-        <span>icon</span>
-        <p>Task</p>
-      </router-link>
-      <router-link to="/settings">
-        <span>icon</span>
-        <p>Settings</p>
+    <div v-for="route in routes" :key="route.name">
+      <router-link :to="route.path" class="bg-indigo-500">
+        <p>{{route.name}}</p>
       </router-link>
     </div>
   </div>
