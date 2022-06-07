@@ -14,7 +14,7 @@ const routes = [
     },
     {
         path:"/login",
-        name:"Login",
+        name:"login",
         component:Login
     },
     {
@@ -24,17 +24,17 @@ const routes = [
     },
     {
         path:"/records",
-        name:"Records",
+        name:"records",
         component:Records
     },
     {
         path:"/task",
-        name:"Task",
+        name:"task",
         component:Task
     },
     {
         path:"/settings",
-        name:"Settings",
+        name:"settings",
         component:Settings
     }
 ]
@@ -42,6 +42,12 @@ const routes = [
 const router = createRouter({
     history:  createWebHistory(),
     routes,
+})
+
+router.beforeEach((to,from)=>{
+    console.log(to)
+    console.log(from)
+   // next({ name: "login" });
 })
 
 export default router;

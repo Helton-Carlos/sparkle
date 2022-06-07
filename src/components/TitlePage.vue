@@ -7,7 +7,6 @@ defineProps<{ title: string; subtitle: string }>();
 <template>
   <div class="m-8">
    <div class="flex">
-      <span>voltar</span>
       <h2 class="font-bold uppercase">{{ title }}</h2>
    </div>
     <p class="font-normal">{{ subtitle }}</p>
