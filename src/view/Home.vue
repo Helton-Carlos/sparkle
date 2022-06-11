@@ -7,7 +7,7 @@ import TitlePage from '../components/TitlePage.vue'
   <div class="flex">
     <Menu />
     <div>
-      <TitlePage title="Home" subtitle="subhome" />
+      <TitlePage title="Home" subtitle="Seja bem vindo a o Sparkle" />
     </div>
   </div>
 </template>

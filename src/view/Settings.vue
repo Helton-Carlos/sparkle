@@ -7,7 +7,7 @@ import TitlePage from '../components/TitlePage.vue'
   <div class="flex">
     <Menu />
       <div>
-      <TitlePage title="setting" subtitle="subsetting" />
+      <TitlePage title="Configurações" subtitle="Deixe seu sistema com seu estilo." />
     </div>
   </div>
 </template>
