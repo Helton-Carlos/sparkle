@@ -41,7 +41,7 @@ const routes = ref<IMeunu[]>([
     <div class="flex my-8 text-indigo-500">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-7 w-7 ml-10"
+        class="h-7 w-7 ml-12"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
