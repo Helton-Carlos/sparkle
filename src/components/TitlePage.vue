@@ -30,10 +30,11 @@ function routeBack() {
           />
         </svg>
       </div>
-      <h2 class="font-bold uppercase">{{ title }}</h2>
+      <div>
+        <h2 class="font-bold uppercase text-lg">{{ title }}</h2>
+        <i class="font-semibold text-slate-500">{{ subtitle }}</i>
+      </div>
     </div>
-
-    <p class="ml-7 font-normal">{{ subtitle }}</p>
   </div>
 </template>
 
