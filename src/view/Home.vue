@@ -10,7 +10,7 @@ import Card from '../components/Card.vue'
     <div>
       <TitlePage title="Home" subtitle="Seja bem vindo a o Sparkle!" />
 
-      <Card />
+      <Card title="valor 1" subtitle="subtitle 1" />
     </div>
   </div>
 </template>
