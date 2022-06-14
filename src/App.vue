@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 
-<template>
+<template >
  <transition mode="out-in">
   <router-view></router-view>
  </transition>

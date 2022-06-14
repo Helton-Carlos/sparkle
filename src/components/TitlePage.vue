@@ -11,7 +11,7 @@ function routeBack() {
 </script>
 
 <template>
-  <div class="m-8">
+  <div class="mb-4">
     <div class="flex">
       <div class="text-indigo-500 hover:text-indigo-800">
         <svg
@@ -31,7 +31,7 @@ function routeBack() {
         </svg>
       </div>
       <div>
-        <h2 class="font-bold uppercase text-lg">{{ title }}</h2>
+        <h2 class="text-lg font-bold uppercase">{{ title }}</h2>
         <i class="font-semibold text-slate-500">{{ subtitle }}</i>
       </div>
     </div>
