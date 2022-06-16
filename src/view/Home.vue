@@ -22,19 +22,20 @@ const setor = ref<string>("Administrativo");
     <div class="m-8">
       <TitlePage title="Home" subtitle="Seja bem vindo a o Sparkle!" />
 
-      <div class="flex gap-4">
+      <div class="flex flex-col gap-4 md:flex-wrap md:flex-row">
         <Card color="blue" title="Organize seu dia:" :subtitle="hours" />
 
-        <Card
-          color="green"
-          title="Setor de atuação:"
-          :subtitle="setor"
-        />
+        <Card color="blue" title="Setor de atuação:" :subtitle="setor" />
 
+        <Card color="blue" title="Atividades para hoje:" :subtitle="ativades" />
+      </div>
+
+      <div class="mt-4">
         <Card
-          color="red"
+          color="blue"
           title="Atividades para hoje:"
           :subtitle="ativades"
+          grafic="grafic"
         />
       </div>
     </div>
