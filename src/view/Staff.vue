@@ -4,16 +4,7 @@ import TitlePage from "../components/TitlePage.vue";
 import Card from "../components/Card.vue";
 import { ref, computed } from "vue";
 
-const hours = computed(() => {
-  const now = new Date();
-  return (
-    "Hoje é " + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear()
-  );
-});
-
-const ativades = ref<string>("Reunião as 19:00");
-
-const setor = ref<string>("Administrativo");
+const faltas = ref<string>("quadro Faltas semanais ");
 </script>
 
 <template>
@@ -23,18 +14,17 @@ const setor = ref<string>("Administrativo");
       <TitlePage title="staff" subtitle="Controle de funcionários." />
 
        <div class="flex flex-col gap-4 md:flex-wrap md:flex-row">
-        <Card color="green" title="Organize seu dia:" :subtitle="hours" />
 
         <Card
           color="green"
-          title="Setor de atuação:"
-          :subtitle="setor"
+          :title="faltas"
+          grafic="grafic"
         />
 
-        <Card
+         <Card
           color="green"
-          title="Atividades para hoje:"
-          :subtitle="ativades"
+          title="Quantidade de funcionários faltosos:"
+          subtitle="2"
         />
       </div>
     </div>

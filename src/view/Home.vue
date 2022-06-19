@@ -27,14 +27,13 @@ const setor = ref<string>("Administrativo");
 
         <Card color="blue" title="Setor de atuação:" :subtitle="setor" />
 
-        <Card color="blue" title="Atividades para hoje:" :subtitle="ativades" />
+        <Card color="blue" title="Número de atividades semanais:" :subtitle="ativades" />
       </div>
 
       <div class="mt-4">
         <Card
           color="blue"
           title="Atividades para hoje:"
-          :subtitle="ativades"
           grafic="grafic"
         />
       </div>
