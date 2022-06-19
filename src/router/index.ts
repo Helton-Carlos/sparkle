@@ -3,7 +3,7 @@ import Home from '../view/Home.vue'
 import Login from '../view/Login.vue'
 import Staff from '../view/Staff.vue'
 import Records from '../view/Records.vue'
-import Task from '../view/Task.vue'
+import Talks from '../view/talks.vue'
 import Settings from '../view/Settings.vue'
 
 const routes = [
@@ -28,9 +28,9 @@ const routes = [
         component:Records
     },
     {
-        path:"/task",
-        name:"task",
-        component:Task
+        path:"/talks",
+        name:"talks",
+        component:Talks
     },
     {
         path:"/settings",

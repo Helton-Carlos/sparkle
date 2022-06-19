@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { ref } from "vue"
+
 export interface ICard {
   title?: string;
   subtitle?: string;
   color?: string;
   grafic?: string;
+  input?: string
 }
 
 defineProps<ICard>();
@@ -23,6 +26,13 @@ const series = [
     data: [30, 40, 35, 50, 49, 60],
   },
 ];
+
+const text = ref<string>("")
+const email = ref<string>("")
+
+function shippingForm(){
+  alert(text.value + " " + email.value)
+}
 </script>
 
 <template>
@@ -49,6 +59,16 @@ const series = [
           :series="series"
         ></apexchart>
       </div>
+
+      <form class="mx-4" v-if="input" @submit="shippingForm">
+
+        <input type="text" v-model="text" class="bg-white rounded border-b-2 w-full my-1 p-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Nome Completo">
+        
+        <input type="email" v-model="email" class="bg-white rounded border-b-2 w-full p-1" placeholder="Digite o e-mail">
+      
+        <input type="submit" value="Enviar" class="bg-indigo-500 shadow text-white mt-2 mb-3 px-4 py-1 rounded hover:bg-indigo-800">
+      
+      </form>
     </div>
   </div>
 </template>

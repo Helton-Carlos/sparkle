@@ -2,7 +2,7 @@
 import Menu from "../layout/Menu.vue";
 import TitlePage from "../components/TitlePage.vue";
 import Card from "../components/Card.vue";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const faltas = ref<string>("quadro Faltas semanais ");
 </script>
