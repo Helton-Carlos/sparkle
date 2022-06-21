@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import Main from "../layout/Main.vue"
 import Menu from "../layout/Menu.vue";
 import TitlePage from "../components/TitlePage.vue";
 import Card from "../components/Card.vue";
+
 import { ref, computed } from "vue";
 
 const hours = computed(() => {
@@ -17,9 +19,10 @@ const setor = ref<string>("Administrativo");
 </script>
 
 <template>
+  <Main />
   <div class="flex">
     <Menu />
-    <div class="m-8">
+    <div class="m-6">
       <TitlePage title="Home" subtitle="Seja bem vindo a o Sparkle!" />
 
       <div class="flex flex-col gap-4 md:flex-wrap md:flex-row">
