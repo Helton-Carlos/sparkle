@@ -11,7 +11,7 @@ function routeBack() {
 </script>
 
 <template>
-  <div class="mb-7">
+  <div class="mb-5">
     <div class="flex">
       <div class="text-indigo-500 cursor-pointer hover:text-indigo-800 ">
         <svg
