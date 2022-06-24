@@ -37,7 +37,7 @@ const routes = ref<IMeunu[]>([
 </script>
 
 <template>
-  <div class="bg-white w-[270px] h-screen border-1">
+  <div class="bg-white w-[270px] h-screen border-1 sumir">
     <div class="mt-10">
       <router-link
         :to="route.path"
@@ -62,3 +62,11 @@ const routes = ref<IMeunu[]>([
     </div>
   </div>
 </template>
+
+<style scoped>
+@media only screen and (max-width: 700px) {
+  .sumir {
+    display: none;
+  }
+}
+</style>

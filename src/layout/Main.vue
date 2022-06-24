@@ -1,12 +1,16 @@
 <script setup lang="ts">
+
+function onMenu():void{
+  alert("hey")
+}
 </script>
 
 <template>
   <div class="bg-white w-full h-[60px] border-b-2 z-50">
-    <div class="flex justify-between mx-10">
+    <div class="flex justify-between mx-7 md:mx-10">
       <div class="flex pt-4 text-indigo-500">
-        <div class="mr-3 mt-1 md:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:bg-gray-200 hover:rounded-xl hover:p-1" viewBox="0 0 20 20" fill="currentColor">
+        <div class="mt-1 mr-3 md:hidden" @click="onMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hover:bg-gray-200 hover:rounded-xl hover:p-1" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
               clip-rule="evenodd" />

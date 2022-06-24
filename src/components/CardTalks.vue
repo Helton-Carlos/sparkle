@@ -8,7 +8,7 @@ defineProps<ICard>();
 </script>
 
 <template>
-  <div class="w-[1000px] rounded-md bg-white shadow-md">
+  <div class="md:w-[1000px] w-full rounded-md bg-white shadow-md">
     <div class="flex px-4 pt-3">
       <div class="pr-1 mr-1 bg-red-500" v-if="color === 'red'"></div>
       <div class="pr-1 mr-1 bg-blue-500" v-if="color === 'blue'"></div>
