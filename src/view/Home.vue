@@ -52,7 +52,7 @@ const hours = computed(() => {
             </svg>
             
             <div>
-              <p class="text-sm font-semibold capitalize">Hoje:</p>
+              <p class="text-sm capitalize">Hoje:</p>
               
               <p class="text-3xl">{{ number }} </p>
             </div>
@@ -65,7 +65,7 @@ const hours = computed(() => {
             </svg>
 
             <div>
-              <p class="capitalize">Hora extras:</p>
+              <p class="text-sm capitalize">Hora extras:</p>
               
               <p class="text-3xl">05:55+</p>
             </div>
@@ -79,7 +79,7 @@ const hours = computed(() => {
             </svg>
 
             <div>
-              <span class="capitalize">Projetos:</span>
+              <span class="text-sm capitalize">Projetos:</span>
 
               <p class="text-3xl">{{ number }} </p>
             </div>
