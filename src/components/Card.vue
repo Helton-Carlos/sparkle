@@ -7,6 +7,7 @@ export interface ICard {
   color?: string;
   grafic?: string;
   input?: string
+  code?: boolean
 }
 
 defineProps<ICard>();
@@ -62,13 +63,17 @@ function shippingForm(){
 
       <form class="mx-4" v-if="input" @submit="shippingForm">
 
-        <input type="text" v-model="text" class="bg-white rounded border-b-2 w-full my-1 p-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Nome Completo">
+        <input type="text" v-model="text" class="w-full p-1 my-1 bg-white border-b-2 rounded focus:ring-indigo-500 focus:border-indigo-500" placeholder="Nome Completo">
         
-        <input type="email" v-model="email" class="bg-white rounded border-b-2 w-full p-1" placeholder="Digite o e-mail">
+        <input type="email" v-model="email" class="w-full p-1 bg-white border-b-2 rounded" placeholder="Digite o e-mail">
       
-        <input type="submit" value="Enviar" class="bg-indigo-500 shadow text-white mt-2 mb-3 px-4 py-1 rounded hover:bg-indigo-800">
+        <input type="submit" value="Enviar" class="px-4 py-1 mt-2 mb-3 text-white bg-indigo-500 rounded shadow hover:bg-indigo-800">
       
       </form>
+
+      <div v-if="code"  class="w-auto text-center">
+        <vue-qrcode value="Helton Brito" :options="{ width: 200 }"></vue-qrcode>
+      </div>
     </div>
   </div>
 </template>

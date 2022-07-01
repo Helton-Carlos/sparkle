@@ -8,9 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "animate.css": "^4.1.1",
     "apexcharts": "^3.35.3",
-    "vue": "^3.2.25",
+    "qrcode": "^1.5.0",
+    "vue": "^3.2.37",
     "vue-router": "4",
     "vue3-apexcharts": "^1.4.1"
   },

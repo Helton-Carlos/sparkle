@@ -94,7 +94,7 @@ const hours = computed(() => {
 
         <Card color="blue" title="Ganho Semanal:" grafic="grafic" />
 
-        <Card color="blue" title="Atividades semana passada:" grafic="grafic" />
+        <Card color="blue" title="QR-Code funcionário:" :code="true" />
       </div>
 
     </div>
