@@ -71,8 +71,8 @@ function shippingForm(){
       
       </form>
 
-      <div v-if="code"  class="w-auto text-center">
-        <vue-qrcode value="Helton Brito" :options="{ width: 200 }"></vue-qrcode>
+      <div v-if="code"  class="px-12">
+        <vue-qrcode value="Helton Brito" :options="{ width: 210 }"></vue-qrcode>
       </div>
     </div>
   </div>
