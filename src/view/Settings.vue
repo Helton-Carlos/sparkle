@@ -2,10 +2,13 @@
 import Main from "../layout/Main.vue";
 import Menu from "../layout/Menu.vue";
 import TitlePage from "../components/TitlePage.vue";
-import func from "../../vue-temp/vue-editor-bridge";
+import { ref } from "vue"
+
+const checkboxComments = ref<string>("");
+const checkboxQrcode = ref<string>("")
 
 function change(){
-  alert("hey")
+  console.log(checkboxQrcode + '' + checkboxComments)
 }
 </script>
 
@@ -22,12 +25,11 @@ function change(){
               <div class="overflow-hidden shadow sm:rounded-md">
                 <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
                   <fieldset>
-                    <legend class="sr-only">By Email</legend>
                     <div class="text-base font-medium text-gray-900" aria-hidden="true">Configurações de tela </div>
                     <div class="mt-4 space-y-4">
                       <div class="flex items-start">
                         <div class="flex items-center h-5">
-                          <input id="comments" name="comments" type="checkbox"
+                          <input id="comments" name="comments" type="checkbox" v-model="checkboxComments"
                             class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
                         </div>
 
@@ -40,7 +42,7 @@ function change(){
                       <div class="flex items-start">
                         <div class="flex items-center h-5">
                           <input id="candidates" name="candidates" type="checkbox"
-                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" v-model="checkboxQrcode">
                         </div>
 
                         <div class="ml-3 text-sm">

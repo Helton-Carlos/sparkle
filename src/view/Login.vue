@@ -19,11 +19,11 @@ function shipmmentLogin() {
       </div>
       
       <label>E-mail:</label>
-      <input type="email" name="email" id="email" class="px-2 py-2 mt-1 mb-4 rounded-md focus:border-indigo-50"
+      <input type="email" name="email" id="email" class="px-2 py-2 mt-1 mb-4 rounded-md focus:ring-fuchsia-300"
         placeholder="josesantos@gmail.com" :value="email">
 
       <label>Password:</label>
-      <input type="password" name="password" id="password" class="px-2 py-2 mt-1 mb-4 rounded-md focus:border-indigo-500"
+      <input type="password" name="password" id="password" class="px-2 py-2 mt-1 mb-4 rounded-md focus:ring-indigo-500 "
         placeholder="*********" :value="password">
 
       <input type="submit" value="Login" class="px-2 py-2 mb-4 text-white bg-indigo-700 rounded-md shadow hover:bg-indigo-900" />
