@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const email = ref<string>("")
 const password = ref<string>("")
 
+const users = ref<any>([])
+
 function shipmmentLogin() {
   alert(email.value + ' ' + password.value)
 }
+
+onMounted(()=>{
+  fetch("/api/users")
+        .then((res) => res.json())
+        .then((json) => {
+          users.value = json.users
+        })
+})
 </script>
 
 <template>
@@ -28,7 +38,9 @@ function shipmmentLogin() {
 
       <router-link to="/" class="text-center text-blue-700 hover:text-blue-200">Ainda não tenho conta?</router-link>
     </form>
-
+    
+    <!--<li v-for="user in users" v-bind:key="user.id">{{ user.name }}</li>-->
+    
     <div class="hidden md:block">
       <img src="../assets/Login-talk.svg" alt="login-img" class="w-[450px] h-[450px]" />
     </div>
