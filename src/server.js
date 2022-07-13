@@ -1,24 +1,24 @@
-import { createServer, Model } from "miragejs"
+import { createServer } from "miragejs"
 
 export function makeServer({ environment = "development" } = {}) {
   let server = createServer({
     environment,
-
-    models: {
-      user: Model,
-    },
-
-    seeds(server) {
-      server.create("user", { name: "Bob" })
-      server.create("user", { name: "Alice" })
-    },
-
     routes() {
       this.namespace = "api"
 
       this.get("/users", (schema) => {
-        return schema.users.all()
-      })
+        return {
+          users: [
+            {email: 'helton@g', password:"12345"},
+            {email: 'talita@g', password:"77777"},
+          ]
+        }
+      });
+
+      this.post("/users", (schema,request) => {
+        let attrs = JSON.parse(request.requestBody)
+        return { users: attrs }
+      });
     },
   })
 

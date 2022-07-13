@@ -7,7 +7,7 @@ import { makeServer } from "./server"
 import './index.css'
 import 'animate.css';
 
-if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === "development") {
     makeServer()
   }
 

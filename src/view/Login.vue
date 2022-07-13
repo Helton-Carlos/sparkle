@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import axios from "axios"
 
 const email = ref<string>("")
 const password = ref<string>("")
 
-const users = ref<any>([])
-
-function shipmmentLogin() {
-  alert(email.value + ' ' + password.value)
+interface LabeledValue {
+  age: number;
+  name: string;
+  password: string;
 }
 
-onMounted(()=>{
-  fetch("/api/users")
-        .then((res) => res.json())
-        .then((json) => {
-          users.value = json.users
-        })
-})
+const users = ref<LabeledValue[]>([])
+
+function shipmmentLogin() {
+ // alert(email.value + ' ' + password.value)
+   axios.post("/api/users", {
+    email: email.value,
+    password: password.value
+  });
+
+  axios.get("/api/users")
+    .then((json) => {users.value = json.data.users})
+}
+
 </script>
 
 <template>
@@ -39,10 +46,9 @@ onMounted(()=>{
       <router-link to="/" class="text-center text-blue-700 hover:text-blue-200">Ainda não tenho conta?</router-link>
     </form>
     
-    <!--<li v-for="user in users" v-bind:key="user.id">{{ user.name }}</li>-->
-    
     <div class="hidden md:block">
       <img src="../assets/Login-talk.svg" alt="login-img" class="w-[450px] h-[450px]" />
     </div>
   </div>
+  <li v-for="user in users" v-bind:key="user.id">{{ user.email }}</li>
 </template>
