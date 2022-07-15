@@ -2,9 +2,10 @@
 </script>
 
 <template >
- <transition mode="out-in">
   <router-view></router-view>
- </transition>
+  <!--
+ <transition mode="out-in">
+ </transition>-->
 </template>
 
 <style>
