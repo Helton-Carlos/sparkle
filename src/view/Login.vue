@@ -1,21 +1,14 @@
 <script setup lang="ts">
-import { ref,onMounted  } from 'vue';
-import { googleOneTap } from "vue3-google-login"
+import { ref } from 'vue';
 import axios from "axios"
-
-onMounted(() => {
-  googleOneTap()
-    .then((response) => {
-      // This promise is resolved when user selects an account from the the One Tap prompt
-      console.log("Handle the response", response)
-    })
-    .catch((error) => {
-      console.log("Handle the error", error)
-    })
-})
+import { googleAuthCodeLogin } from "vue3-google-login"
 
 const email = ref<string>("")
 const password = ref<string>("")
+
+const callback = (response: any) => {
+  console.log("Handle the response", response)
+}
 
 interface LabeledValue {
   age: number;
@@ -26,7 +19,7 @@ interface LabeledValue {
 const users = ref<LabeledValue[]>([])
 
 function shipmmentLogin() {
-  // alert(email.value + ' ' + password.value)
+
   axios.post("/api/users", {
     email: email.value,
     password: password.value
@@ -36,40 +29,45 @@ function shipmmentLogin() {
 
   axios.get("/api/users")
     .then((json) => { users.value = json.data.users })
+};
+
+const login = () => {
+  googleAuthCodeLogin().then((response) => {
+    console.log("Handle the response", response)
+  })
 }
 
 </script>
 
 <template>
   <div class="flex items-center justify-between mx-10 mt-20 md:mx-36 md:mt-20">
-    <form @submit.prevent="shipmmentLogin()" class="flex flex-col w-[400px]">
-      <div>
-        <h1 class="mb-4 text-3xl font-semibold">Login</h1>
-      </div>
+    <div class="flex flex-col">
+      <form @submit.prevent="shipmmentLogin()" class="flex flex-col w-[400px]">
+        <div>
+          <h1 class="mb-4 text-3xl font-semibold">Login</h1>
+        </div>
 
-      <label>E-mail:</label>
-      <input type="email" name="email" id="email" class="px-2 py-2 mt-1 mb-4 rounded-md focus:ring-fuchsia-300"
-        placeholder="josesantos@gmail.com" v-model.trim="email">
+        <label>E-mail:</label>
+        <input type="email" name="email" id="email" class="px-2 py-2 mt-1 mb-4 rounded-md focus:ring-fuchsia-300"
+          placeholder="josesantos@gmail.com" v-model.trim="email">
 
-      <label>Password:</label>
-      <input type="password" name="password" id="password" class="px-2 py-2 mt-1 mb-4 rounded-md focus:ring-indigo-500 "
-        placeholder="*********" v-model.trim="password">
+        <label>Password:</label>
+        <input type="password" name="password" id="password"
+          class="px-2 py-2 mt-1 mb-4 rounded-md focus:ring-indigo-500 " placeholder="*********" v-model.trim="password">
 
-      <input type="submit" value="Login"
-        class="px-2 py-2 mb-4 text-white bg-indigo-700 rounded-md shadow hover:bg-indigo-900" />
+        <input type="submit" value="Login"
+          class="px-2 py-2 mb-4 text-white bg-indigo-700 rounded-md shadow hover:bg-indigo-900" />
+      </form>
 
-      <div>
-        <h1>IsInit: {{ Vue3GoogleOauth.isInit }}</h1>
-        <h1>IsAuthorized: {{ Vue3GoogleOauth.isAuthorized }}</h1>
-        <h2 v-if="user">signed user: {{user}}</h2>
-        <button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">sign in</button>
-        <button @click="handleClickGetAuthCode" :disabled="!Vue3GoogleOauth.isInit">get authCode</button>
-        <button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign out</button>
-        <button @click="handleClickDisconnect" :disabled="!Vue3GoogleOauth.isAuthorized">disconnect</button>
-      </div>
+      <GoogleLogin :callback="callback">
+        <button class="flex px-2 py-2 mb-4 text-black bg-slate-200 rounded-md shadow hover:bg-slate-500" @click="login">
+          <img src="../assets/google.png" alt="google" class="w-[20px] mr-2"> Login Using Google
+        </button>
+      </GoogleLogin>
 
       <router-link to="/" class="text-center text-blue-700 hover:text-blue-200">Ainda não tenho conta?</router-link>
-    </form>
+    </div>
+
 
     <div class="hidden md:block">
       <img src="../assets/Login-talk.svg" alt="login-img" class="w-[450px] h-[450px]" />
