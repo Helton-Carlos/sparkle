@@ -58,9 +58,15 @@ function shipmmentLogin() {
       <input type="submit" value="Login"
         class="px-2 py-2 mb-4 text-white bg-indigo-700 rounded-md shadow hover:bg-indigo-900" />
 
-      <GoogleLogin :callback="callback" prompt/>
-
-        <div>One-Tap prompt will be shown once this component is mounted</div>
+      <div>
+        <h1>IsInit: {{ Vue3GoogleOauth.isInit }}</h1>
+        <h1>IsAuthorized: {{ Vue3GoogleOauth.isAuthorized }}</h1>
+        <h2 v-if="user">signed user: {{user}}</h2>
+        <button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">sign in</button>
+        <button @click="handleClickGetAuthCode" :disabled="!Vue3GoogleOauth.isInit">get authCode</button>
+        <button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign out</button>
+        <button @click="handleClickDisconnect" :disabled="!Vue3GoogleOauth.isAuthorized">disconnect</button>
+      </div>
 
       <router-link to="/" class="text-center text-blue-700 hover:text-blue-200">Ainda não tenho conta?</router-link>
     </form>
