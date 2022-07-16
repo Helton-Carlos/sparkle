@@ -1,6 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref,onMounted  } from 'vue';
+import { googleOneTap } from "vue3-google-login"
 import axios from "axios"
+
+onMounted(() => {
+  googleOneTap()
+    .then((response) => {
+      // This promise is resolved when user selects an account from the the One Tap prompt
+      console.log("Handle the response", response)
+    })
+    .catch((error) => {
+      console.log("Handle the error", error)
+    })
+})
 
 const email = ref<string>("")
 const password = ref<string>("")
@@ -45,6 +57,10 @@ function shipmmentLogin() {
 
       <input type="submit" value="Login"
         class="px-2 py-2 mb-4 text-white bg-indigo-700 rounded-md shadow hover:bg-indigo-900" />
+
+      <GoogleLogin :callback="callback" prompt/>
+
+        <div>One-Tap prompt will be shown once this component is mounted</div>
 
       <router-link to="/" class="text-center text-blue-700 hover:text-blue-200">Ainda não tenho conta?</router-link>
     </form>
