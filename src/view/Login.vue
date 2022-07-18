@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import axios from "axios"
-import { googleAuthCodeLogin } from "vue3-google-login"
+import { decodeCredential, googleTokenLogin, googleSdkLoaded,CallbackTypes  } from "vue3-google-login"
 
 const email = ref<string>("")
 const password = ref<string>("")
 
-const callback = (response: any) => {
-  console.log("Handle the response", response)
+const callback: CallbackTypes.CodeResponseCallback  = (response: any) => {
+  console.log("1", response)
+   console.log("2", decodeCredential);
+    console.log("3", googleTokenLogin);
+     console.log("4",googleSdkLoaded);
+      console.log("5",response.credential);
 }
 
 interface LabeledValue {
@@ -30,13 +34,6 @@ function shipmmentLogin() {
   axios.get("/api/users")
     .then((json) => { users.value = json.data.users })
 };
-
-const login = () => {
-  googleAuthCodeLogin().then((response) => {
-    console.log("Handle the response", response)
-  })
-}
-
 </script>
 
 <template>
@@ -58,16 +55,15 @@ const login = () => {
         <input type="submit" value="Login"
           class="px-2 py-2 mb-4 text-white bg-indigo-700 rounded-md shadow hover:bg-indigo-900" />
       </form>
-
-      <GoogleLogin :callback="callback">
-        <button class="flex px-2 py-2 mb-4 text-black bg-slate-200 rounded-md shadow hover:bg-slate-500" @click="login">
-          <img src="../assets/google.png" alt="google" class="w-[20px] mr-2"> Login Using Google
+      
+      <GoogleLogin :callback="callback" popup-type="TOKEN">
+        <button class="w-[400px] flex justify-center px-2 py-2 mb-4 text-black rounded-md shadow bg-slate-200 hover:bg-slate-500 hover:text-white">
+          <img src="../assets/google.png" alt="google" class="w-[20px] mr-2">Login com conta google
         </button>
       </GoogleLogin>
 
       <router-link to="/" class="text-center text-blue-700 hover:text-blue-200">Ainda não tenho conta?</router-link>
     </div>
-
 
     <div class="hidden md:block">
       <img src="../assets/Login-talk.svg" alt="login-img" class="w-[450px] h-[450px]" />
