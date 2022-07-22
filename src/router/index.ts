@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useCookies } from "vue3-cookies";
 import Home from '../view/Home.vue'
 import Login from '../view/Login.vue'
 import Staff from '../view/Staff.vue'
 import Records from '../view/Records.vue'
 import Talks from '../view/talks.vue'
 import Settings from '../view/Settings.vue'
+
+const { cookies } = useCookies();
 
 const routes = [
     {
@@ -45,9 +48,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    let login = JSON.parse(localStorage.getItem("login"));
-    
-    if (to.fullPath !== "/login" && login === null) {
+   let my_cookie_value = cookies.get("myCoookie");
+    console.log(my_cookie_value)
+   if (to.fullPath !== "/login" && my_cookie_value === null) {
       next({ name: "login" });
     }
 

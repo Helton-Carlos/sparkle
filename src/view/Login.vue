@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import axios from "axios"
 import { CallbackTypes } from "vue3-google-login"
+import { useCookies } from "vue3-cookies";
 
 const email = ref<string>("")
 const password = ref<string>("")
+const { cookies } = useCookies();
+const router = useRouter()
 
 const callback: CallbackTypes.CodeResponseCallback  = (response: any) => {
-  console.log("1", response.access_token)
+  cookies.set("myCoookie", response.access_token);
+  router.push({ name: "home"})
 }
 
 interface LabeledValue {
