@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import axios from "axios"
-import { decodeCredential, googleTokenLogin, googleSdkLoaded,CallbackTypes  } from "vue3-google-login"
+import { CallbackTypes } from "vue3-google-login"
 
 const email = ref<string>("")
 const password = ref<string>("")
 
 const callback: CallbackTypes.CodeResponseCallback  = (response: any) => {
-  console.log("1", response)
-   console.log("2", decodeCredential);
-    console.log("3", googleTokenLogin);
-     console.log("4",googleSdkLoaded);
-      console.log("5",response.credential);
+  console.log("1", response.access_token)
 }
 
 interface LabeledValue {
