@@ -49,7 +49,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
    let my_cookie_value = cookies.get("myCoookie");
-    console.log(my_cookie_value)
    if (to.fullPath !== "/login" && my_cookie_value === null) {
       next({ name: "login" });
     }
