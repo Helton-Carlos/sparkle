@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import axios from "axios"
-import { CallbackTypes } from "vue3-google-login"
+import axios from "axios";
+import { CallbackTypes } from "vue3-google-login";
 import { useCookies } from "vue3-cookies";
 
-const email = ref<string>("")
-const password = ref<string>("")
+const email = ref<string>("");
+const password = ref<string>("");
 const { cookies } = useCookies();
-const router = useRouter()
+const router = useRouter();
 
 const callback: CallbackTypes.CodeResponseCallback  = (response: any) => {
   cookies.set("myCoookie", response.access_token);
-  router.push({ name: "home"})
+  router.push({ name: "home"});
 }
 
 interface LabeledValue {
@@ -21,7 +21,7 @@ interface LabeledValue {
   password: string;
 }
 
-const users = ref<LabeledValue[]>([])
+const users = ref<LabeledValue[]>([]);
 
 function shipmmentLogin() {
 
@@ -33,7 +33,7 @@ function shipmmentLogin() {
   });
 
   axios.get("/api/users")
-    .then((json) => { users.value = json.data.users })
+    .then((json) => { users.value = json.data.users });
 };
 </script>
 

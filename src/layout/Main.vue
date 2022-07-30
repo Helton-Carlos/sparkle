@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const showTabs = ref<boolean>(false)
+const showTabs = ref<boolean>(false);
 
 function onMenu(): void {
-  alert("hey")
+  alert("hey");
 }
 
 function exitPage() {

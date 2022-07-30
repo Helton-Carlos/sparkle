@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import Main from "../layout/Main.vue"
+import Main from "../layout/Main.vue";
 import Menu from "../layout/Menu.vue";
 import TitlePage from "../components/TitlePage.vue";
 import Card from "../components/Card.vue";
-import { ref, computed, onMounted } from "vue";
+import { ref, computed } from "vue";
 
-const user = ref<string>("Helton Brito")
+const user = ref<string>("Helton Brito");
 
-const number = ref<number>(7)
+const number = ref<number>(7);
 
 const hours = computed(() => {
   const hour = new Date().getHours()
   if (hour >= 0 && hour <= 12) {
-    return "bom dia"
+    return "bom dia";
   } else if (hour > 12 && hour < 18) {
-    return "boa tarde"
+    return "boa tarde";
   } else {
-    return "boa noite"
+    return "boa noite";
   }
 })
 
